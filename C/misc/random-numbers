@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+/*==============Bloco da fun��o Main==================*/
+int main()
+{
+    srand(time(NULL)); //Inicializa��o
+    int repetidas = 0;
+    printf("Escolha quantas vezes o calculo deve se repetir: \n");
+    scanf("%d", &repetidas);
+    printf("O calculo vai se repetir %d vezes. \n", repetidas);
+    int repete = 0;
+    for (repete = 1; repete <= repetidas; repete++){ //um for loop que vai se repetir dependendo do valor selecionado pelo usu�rio
+        int number1 = rand(); // n�mero aleat�rio
+        int number2 = rand(); //n�mero aleat�rio
+        int resultado = 0; //resultado final da conta
+        int n = rand()%4; //pega um valor aleat�rio de zero a quatro para puxar da lista
+        const char *a[4]; //lista de operadores matem�ticos (+, -, /, *)
+        a[0] = "+";
+        a[1] = "-";
+        a[2] = "/";
+        a[3] = "*";
+        // switch especifico de cada operador matem�tico
+        switch(n){
+            case 0:
+                printf("Operacao: %d + %d\n", number1, number2);
+                resultado = number1 + number2;
+                break;
+            case 1:
+                printf("Operacao: %d - %d\n", number1, number2);
+                resultado = number1 - number2;
+                break;
+            case 2:
+                printf("Operacao: %d / %d\n", number1, number2);
+                resultado = number1 / number2;
+                break;
+            case 3:
+                printf("Operacao: %d * %d\n", number1, number2);
+                resultado = number1 * number2;
+                break;
+        }
+        printf("Resultado: %d\n\n", resultado); //resultado final
+    }
+    printf("C�lculo repetido %d vezes. \n", repetidas);
+    system("PAUSE"); //pausa a execu��o
+    return 0; //retorna zero no final da fun��o
+}
+
+/*====================================================*/
